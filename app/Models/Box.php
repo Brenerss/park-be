@@ -3,15 +3,15 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Box extends Model
 {
     protected $fillable = [
-        'id',
-        'number'
+        'id'
     ];
 
-    public function parkings(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function parkings(): HasMany
     {
         return $this->hasMany(Parking::class);
     }

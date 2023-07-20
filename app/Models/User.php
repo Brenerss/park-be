@@ -3,7 +3,10 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Enums\RoleType;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -23,7 +26,8 @@ class User extends Authenticatable
         'email',
         'password',
         'phone_number',
-        'establishment_id'
+        'establishment_id',
+        'role_id'
     ];
 
     /**
@@ -44,11 +48,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
+        'role_id' => RoleType::class
     ];
 
-    public function roles(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    public function role(): BelongsTo
     {
-        return $this->belongsToMany(Role::class);
+        return $this->belongsTo(Role::class);
     }
 
     public function establishment(): \Illuminate\Database\Eloquent\Relations\BelongsTo

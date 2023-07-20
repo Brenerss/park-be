@@ -19,8 +19,13 @@ return new class extends Migration
             $table->string('password');
             $table->string('phone_number', 11)->nullable();
             $table->unsignedBigInteger('establishment_id');
+            $table->unsignedBigInteger('role_id');
             $table->rememberToken();
             $table->timestamps();
+
+            $table->foreign('role_id')
+                ->references('id')
+                ->on('roles');
 
             $table->foreign('establishment_id')
                 ->references('id')

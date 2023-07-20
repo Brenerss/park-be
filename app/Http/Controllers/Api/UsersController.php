@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\User\UserStoreRequest;
 use App\Models\User;
 
-class UserController extends Controller
+class UsersController extends Controller
 {
     public function store(UserStoreRequest $request)
     {

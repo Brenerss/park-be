@@ -11,8 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('boxes', function (Blueprint $table) {
+        Schema::create('parkings', function (Blueprint $table) {
             $table->id();
+            $table->unsignedInteger('vehicle_id');
+            $table->unsignedInteger('box_id');
+            $table->unsignedInteger('user_id');
+            $table->dateTime('entrance_time')->useCurrent();
+            $table->dateTime('exit_time')->nullable();
+            $table->double('price')->nullable();
             $table->timestamps();
         });
     }
@@ -22,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('boxes');
+        Schema::dropIfExists('parkings');
     }
 };
