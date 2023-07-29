@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\ParkingsController;
 use App\Http\Controllers\Api\UsersController;
 use App\Http\Controllers\Auth\AuthController;
 use Illuminate\Support\Facades\Route;
@@ -13,5 +14,6 @@ Route::prefix('users')->group(function () {
 });
 
 Route::prefix('parkings')->group(function () {
-    Route::post('/', [\App\Http\Controllers\Api\ParkingsController::class, 'store']);
+    Route::post('/', [ParkingsController::class, 'store']);
+    Route::post('/{parking}', [ParkingsController::class, 'update']);
 });
