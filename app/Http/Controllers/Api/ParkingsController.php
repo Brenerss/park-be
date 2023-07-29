@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Actions\Parking\CreateParkingAction;
-use App\Actions\Parking\LeaveParkingAction;
-use App\DTOs\Parking\CreateParkingDTO;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Parking\StoreParkingRequest;
 use App\Models\Parking;
 use App\Models\User;
-use Illuminate\Http\Request;
+use App\Services\Parking\Actions\CreateParkingAction;
+use App\Services\Parking\Actions\LeaveParkingAction;
+use App\Services\Parking\DTOs\CreateParkingDTO;
 
 class ParkingsController extends Controller
 {

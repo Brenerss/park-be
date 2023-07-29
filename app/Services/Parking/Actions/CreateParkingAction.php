@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Actions\Parking;
+namespace App\Services\Parking\Actions;
 
-use App\DTOs\Parking\CreateParkingDTO;
 use App\Models\Parking;
+use App\Services\Parking\DTOs\CreateParkingDTO;
 
 class CreateParkingAction
 {

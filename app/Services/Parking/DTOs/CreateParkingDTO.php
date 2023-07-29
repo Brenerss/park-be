@@ -1,6 +1,6 @@
 <?php
 
-namespace App\DTOs\Parking;
+namespace App\Services\Parking\DTOs;
 
 use App\Http\Requests\Parking\StoreParkingRequest;
 use App\Models\Box;

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Actions\Parking;
+namespace App\Services\Parking\Actions;
 
 use App\Models\Parking;
 use App\Services\Parking\Price\CarPrice;
