@@ -3,7 +3,7 @@
 namespace App\Services\Parking\Price;
 use App\Models\Parking;
 
-class MotocyclePrice extends ParkingPrice
+class MotorcyclePrice extends ParkingPrice
 {
     public float $initialPrice = 5.00;
 

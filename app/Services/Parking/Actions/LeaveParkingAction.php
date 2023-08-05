@@ -5,7 +5,7 @@ namespace App\Services\Parking\Actions;
 use App\Enums\VehicleType;
 use App\Models\Parking;
 use App\Services\Parking\Price\CarPrice;
-use App\Services\Parking\Price\MotocyclePrice;
+use App\Services\Parking\Price\MotorcyclePrice;
 use App\Services\Parking\Price\TruckPrice;
 use Carbon\Carbon;
 use Exception;
@@ -24,7 +24,7 @@ class LeaveParkingAction
         $class = match ($parking->vehicle->type) {
             VehicleType::CAR => CarPrice::class,
             VehicleType::TRUCK => TruckPrice::class,
-            VehicleType::MOTORCYCLE => MotocyclePrice::class,
+            VehicleType::MOTORCYCLE => MotorcyclePrice::class,
             default => null,
         };
 
