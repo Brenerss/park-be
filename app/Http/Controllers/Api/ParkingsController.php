@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Services\Parking\Actions\CreateParkingAction;
 use App\Services\Parking\Actions\LeaveParkingAction;
 use App\Services\Parking\DTOs\CreateParkingDTO;
+use Exception;
 
 class ParkingsController extends Controller
 {
@@ -16,12 +17,24 @@ class ParkingsController extends Controller
     {
     }
 
+    /**
+     * @throws Exception
+     */
     public function store(StoreParkingRequest $request)
     {
         $user = User::find(1);
-        (new CreateParkingAction())->execute(CreateParkingDTO::fromRequest($request, $user));
+
+        try {
+            $park = (new CreateParkingAction())->execute(CreateParkingDTO::fromRequest($request, $user));
+            return response()->json($park);
+        } catch (Exception $ex) {
+            return response()->json($ex->getMessage(), 400);
+        }
     }
 
+    /**
+     * @throws Exception
+     */
     public function update(Parking $parking)
     {
         $parking = (new LeaveParkingAction())->execute($parking);
