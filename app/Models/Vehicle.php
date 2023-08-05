@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\VehicleType;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -18,7 +19,16 @@ class Vehicle extends Model
         'type'
     ];
 
-    public function driver(): \Illuminate\Database\Eloquent\Relations\HasOne
+    protected $hidden = [
+        'created_at',
+        'updated_at'
+    ];
+
+    protected $casts = [
+        'type' => VehicleType::class
+    ];
+
+    public function driver(): HasOne
     {
         return $this->hasOne(Driver::class, 'driver_id');
     }
