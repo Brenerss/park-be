@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedInteger('vehicle_id');
             $table->unsignedInteger('box_id');
             $table->unsignedInteger('user_id');
-            $table->dateTime('entrance_time')->useCurrent();
+            $table->dateTime('entrance_time');
             $table->dateTime('exit_time')->nullable();
             $table->double('price')->nullable();
             $table->timestamps();
