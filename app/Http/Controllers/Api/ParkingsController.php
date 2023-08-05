@@ -37,8 +37,11 @@ class ParkingsController extends Controller
      */
     public function update(Parking $parking)
     {
-        $parking = (new LeaveParkingAction())->execute($parking);
-
-        return response()->json($parking);
+        try {
+            $parking = (new LeaveParkingAction())->execute($parking);
+            return response()->json($parking);
+        } catch (Exception $ex) {
+            return response()->json($ex->getMessage(), 400);
+        }
     }
 }
