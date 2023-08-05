@@ -15,5 +15,5 @@ Route::prefix('users')->group(function () {
 
 Route::prefix('parkings')->group(function () {
     Route::post('/', [ParkingsController::class, 'store']);
-    Route::post('/{parking}', [ParkingsController::class, 'update']);
+    Route::put('/{parking}', [ParkingsController::class, 'update']);
 });
