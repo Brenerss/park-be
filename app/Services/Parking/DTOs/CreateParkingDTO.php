@@ -6,6 +6,7 @@ use App\Http\Requests\Parking\StoreParkingRequest;
 use App\Models\Box;
 use App\Models\User;
 use App\Models\Vehicle;
+use Carbon\Carbon;
 
 class CreateParkingDTO
 {
@@ -34,7 +35,8 @@ class CreateParkingDTO
         return [
             'box_id' =>  $data->box->id,
             'vehicle_id' => $data->vehicle->id,
-            'user_id' => $data->user->id
+            'user_id' => $data->user->id,
+            'entrance_time' => Carbon::now('America/Sao_paulo')
         ];
     }
 
