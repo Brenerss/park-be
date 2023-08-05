@@ -4,7 +4,7 @@ namespace App\Services\Parking\Price;
 
 use App\Models\Parking;
 
-class CarPrice extends ParkingParkingPrice
+class CarPrice extends ParkingPrice
 {
     protected float $initialPrice = 8.00;
     protected ?float $pricePerHalfHour = 2.00;
